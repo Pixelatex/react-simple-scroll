@@ -45,7 +45,7 @@ class ScrollContainer extends React.Component {
     }
 
     render() {
-        return <div onScroll={this.handleScroll}>{React.Children.only(this.props.children)}</div>
+        return(<div onScroll={this.handleScroll}>{React.Children.only(this.props.children)}</div>)
     }
 }
 export default ScrollContainer

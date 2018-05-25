@@ -2,10 +2,14 @@
   "name": "react-simple-scroll",
   "version": "0.0.1",
   "description": "A simple scroll container for React.",
-  "main": "src/index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "scripts": {
-    "start": "nwb serve-react-app",
-    "build": "nwb build-react-app"
+    "build": "nwb build-web-module",
+    "clean": "nwb clean-module",
+    "test": "nwb test",
+    "test:coverage": "nwb test --coverage",
+    "test:watch": "nwb test --server"
   },
   "repository": {
     "type": "git",
@@ -31,6 +35,11 @@
     "scroll-into-view": "^1.9.3"
   },
   "devDependencies": {
-    "nwb": "^0.21.5"
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "nwb": "^0.21.5",
+    "babel-core": "^6.0.15",
+    "babel-loader": "^7.1.2",
+    "babel-preset-stage-0": "^6.0.15"
   }
 }
