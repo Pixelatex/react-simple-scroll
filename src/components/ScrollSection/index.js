@@ -31,7 +31,7 @@ class ScrollSection extends React.Component {
     }
 
     render() {
-        return this.renderChildren()
+        return <div id={this.props.sectionId}>{this.renderChildren()}</div>
     }
 }
 
@@ -42,7 +42,7 @@ ScrollSection.defaultProps = {
     onChildHandler: () => null
 }
 
-ScrollSection.PropTypes = {
+ScrollSection.propTypes = {
     onMountHandler: PropTypes.func,
     onUnmountHandler: PropTypes.func,
     onChangeHandler: PropTypes.func,

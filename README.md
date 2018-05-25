@@ -5,7 +5,6 @@ A simple scrolling container for react.
 ## Table of Contents
 
 *   API
-    *  WithScroll
     *  ScrollSection
     *  ScrollContainer
 *   Example
@@ -37,7 +36,7 @@ No api available.
 | Prop     | Type | What does it do |
 | :-------- | :---- | :-------- |
 | Children   | React component(s)   | The children you want to be scrollable.
-| Id   | String   | The section id you will use to scroll to.
+| SectionId   | String   | The section id you will use to scroll to.
 
 
 ## Example

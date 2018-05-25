@@ -644,7 +644,11 @@ var ScrollSection = (_temp = _class = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            return this.renderChildren();
+            return _react2.default.createElement(
+                'div',
+                { id: this.props.id },
+                this.renderChildren()
+            );
         }
     }]);
 
@@ -669,7 +673,7 @@ ScrollSection.defaultProps = {
     }
 };
 
-ScrollSection.PropTypes = {
+ScrollSection.propTypes = {
     onMountHandler: _propTypes2.default.func,
     onUnmountHandler: _propTypes2.default.func,
     onChangeHandler: _propTypes2.default.func,
@@ -1437,15 +1441,15 @@ var ScrollContainer = (_temp2 = _class = function (_React$Component) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ScrollContainer.__proto__ || Object.getPrototypeOf(ScrollContainer)).call.apply(_ref, [this].concat(args))), _this), _this.elements = {}, _this.handleScroll = function () {
-            console.log('isScrolling', _this.elements);
-            Object.keys(_this.elements).map(function (key) {
-                var node = document.getElementById(key);
-                console.log(node, 'the full node');
-
-                if (node.offsetTop < 50) {
-                    console.log(key, ' is on top!');
-                }
-            });
+            // console.log('isScrolling', this.elements)
+            // Object.keys(this.elements).map(key => {
+            //     const node = document.getElementById(key)
+            //     console.log(node, 'the full node')
+            //
+            //     if (node.offsetTop < 50) {
+            //         console.log(key, ' is on top!')
+            //     }
+            // })
             // if (this.state.sectionRendered) {
             //     const n = findDOMNode(this)
             //     if (n.offsetTop < 50) {

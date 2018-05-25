@@ -67,7 +67,11 @@ var ScrollSection = (_temp = _class = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            return this.renderChildren();
+            return _react2.default.createElement(
+                'div',
+                { id: this.props.id },
+                this.renderChildren()
+            );
         }
     }]);
 
@@ -92,7 +96,7 @@ ScrollSection.defaultProps = {
     }
 };
 
-ScrollSection.PropTypes = {
+ScrollSection.propTypes = {
     onMountHandler: _propTypes2.default.func,
     onUnmountHandler: _propTypes2.default.func,
     onChangeHandler: _propTypes2.default.func,

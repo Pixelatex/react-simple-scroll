@@ -1,6 +1,6 @@
 {
-  "name": "react-simple-scroll",
-  "version": "0.0.1",
+  "name": "react-simple-scroll-container",
+  "version": "1.0.0",
   "description": "A simple scroll container for React.",
   "main": "lib/index.js",
   "module": "es/index.js",
