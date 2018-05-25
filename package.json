@@ -1,0 +1,32 @@
+{
+  "name": "react-simple-scroll",
+  "version": "0.0.1",
+  "description": "A simple scroll container for React.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Pixelatex/react-simple-scroll.git"
+  },
+  "keywords": [
+    "React",
+    "Scroll",
+    "Scroll",
+    "to",
+    "Scrollable"
+  ],
+  "author": "Eward Somers (Pixelatex)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pixelatex/react-simple-scroll/issues"
+  },
+  "homepage": "https://github.com/Pixelatex/react-simple-scroll#readme",
+  "dependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "scroll-into-view": "^1.9.3"
+  }
+}
