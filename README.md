@@ -46,19 +46,19 @@ No api available.
 
 ```javascript
 <ScrollContainer>
-	<div>
-		 <ScrollSection id="section1">
-		 <somecomponent />
-		 </ScrollSection>
-		 ....
-	  </div>
+    <div>
+         <ScrollSection id="section1">
+         <somecomponent />
+         </ScrollSection>
+         ....
+    </div>
 </ScrollContainer>
 ```
 
 #### Scroll to a section
 
 ```javascript
-<div onClick={() => ScrollTo(props.to, props.offset, props.duration)}>
+<div onClick={() => ScrollTo('targetId', 10, 500)}>
 	Click me to navigate to section #1
 </div>
 ```
