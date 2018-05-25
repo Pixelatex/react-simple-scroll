@@ -4,7 +4,8 @@
   "description": "A simple scroll container for React.",
   "main": "src/index.js",
   "scripts": {
-    "test": ""
+    "start": "nwb serve-react-app",
+    "build": "nwb build-react-app"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "scroll-into-view": "^1.9.3"
+  },
+  "devDependencies": {
+    "nwb": "^0.21.5"
   }
 }
