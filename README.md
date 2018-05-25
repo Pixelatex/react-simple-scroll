@@ -1,5 +1,6 @@
 
-# simple-scroll Documentation
+# react-simple-scroll
+A simple scrolling container for react.
 
 ## Table of Contents
 
@@ -41,25 +42,13 @@ No api available.
 
 ## Example
 
-#### WithScroll  (container)
-
-```javascript
-export default connect(mapState)(WithScroll(SomeComponent))
-```
-
-#### WithScroll  (index)
-
-```javascript
-export default WithScroll(SomeComponent)
-```
-
 #### Basic usage of the container and sections
 
 ```javascript
 <ScrollContainer>
 	<div>
 		 <ScrollSection id="section1">
-		 <.. some component />
+		 <somecomponent />
 		 </ScrollSection>
 		 ....
 	  </div>
