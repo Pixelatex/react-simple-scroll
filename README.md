@@ -12,12 +12,6 @@ A simple scrolling container for react.
 
 ## Api
 
-#### WithScroll
-
-| Prop     | Type | What does it do |
-| :-------- | :---- | :-------- |
-| WrappedComponent   | React component   | This needs to be wrapped around every child of a scroll section.
-
 #### ScrollContainer
 
 No api available.
