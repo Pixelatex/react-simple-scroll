@@ -24,3 +24,6 @@ chrome-user-data
 *.swp
 *.swo
 dist/
+umd/
+es/
+lib/
