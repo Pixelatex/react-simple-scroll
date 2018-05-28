@@ -3,33 +3,41 @@ import PropTypes from 'prop-types'
 import { findDOMNode } from 'react-dom'
 
 class ScrollContainer extends React.Component {
+    state = {
+        activeElement: ''
+    };
+
     static childContextTypes = {
         scroll: PropTypes.object,
     };
 
     elements = {};
 
-    handleScroll = () => {
-        // console.log('isScrolling', this.elements)
-        // Object.keys(this.elements).map(key => {
-        //     const node = document.getElementById(key)
-        //     console.log(node, 'the full node')
-        //
-        //     if (node.offsetTop < 50) {
-        //         console.log(key, ' is on top!')
-        //     }
-        // })
-        // if (this.state.sectionRendered) {
-        //     const n = findDOMNode(this)
-        //     if (n.offsetTop < 50) {
-        //         console.log(this.props.id, ' is on top!')
-        //     }
-        //     console.log(n.offsetTop, 'offset')
-        // }
+    handleScroll = (e) => {
+        // This should be updated to handle the detection when a scroll element is on top
+
+        const containerScrollTop = this.container.scrollTop;
+        const containerOffset = this.container.offsetHeight;
+
+        Object.keys(this.elements).map(key => {
+            const element = this.elements[key];
+            const remainingDistanceToTop = element.offsetTop - ((containerOffset + containerScrollTop) + element.offsetHeight /2);
+
+            if( remainingDistanceToTop < 0) {
+                // Do the call back with the active id
+                if(this.state.activeElement !== key) {
+                    this.setState({
+                        activeElement: key
+                    });
+                    this.props.topScrollCallback(key);
+
+
+                }
+            }
+        })
     };
 
     getNode = (name) => {
-
         return findDOMNode(this.elements[name]);
     };
 
@@ -51,12 +59,33 @@ class ScrollContainer extends React.Component {
     }
 
     render() {
-        return <div id={this.props.containerId} onScroll={this.handleScroll}>{React.Children.only(this.props.children)}</div>
+        return (
+            <div
+                style={{overflowY: 'scroll', ...this.props.extraStyle}}
+                id={this.props.containerId}
+                className={this.props.extraClassName}
+                onScroll={this.props.topScroll ? this.handleScroll : () => null}
+                ref={ref => this.container = ref}
+            >
+                {this.props.children}
+            </div>)
     }
 }
 
 ScrollContainer.defaultProps = {
-    containerId: ''
+    containerId: '',
+    topScroll: false,
+    topScrollCallback: () => null,
+    extraStyle: {},
+    extraClassName: ''
+};
+
+ScrollContainer.propTypes = {
+    containerId: PropTypes.string,
+    topScroll: PropTypes.bool,
+    topScrollCallback: PropTypes.func,
+    extraStyle: PropTypes.object,
+    extraClassName: PropTypes.string
 };
 
 export default ScrollContainer

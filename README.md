@@ -22,6 +22,10 @@ A simple scrolling container for react.
 | Prop     | Type | What does it do |
 | :-------- | :---- | :-------- |
 | ContainerId   | String   | The id of the container to use for navigation. |
+| ExtraStyle   | Object   | Inline css object to be added to the container div. |
+| ExtraClass   | String   | Extra classname(s) to be added to the container div. |
+| TopScroll   | Bool   | Should container detect the currently active top element. |
+| TopScrollCallback   | Func   | Callback which provides the new active element. |
 
 #### ScrollTo
 
@@ -29,7 +33,7 @@ A simple scrolling container for react.
 | :-------- | :---- | :-------- |
 | SectionId   | String   | The id of the section to navigate to. |
 | ContainerId   | String   | The id of the container the element is in. |
-| Duraton   |  Integer   | The time it will take the scroll to complete the distance in ms.|
+| Duration   |  Integer   | The time it will take the scroll to complete the distance in ms.|
 | Offset   |  Integer   | The amount to offset the scrolling to ( 10 means it will scroll 10 pixels higher.)|
 
 
@@ -49,12 +53,10 @@ Using the containerId ensures you call a unique element in that specific contain
 
 ```javascript
 <ScrollContainer id="newContainer">
-    <div>
-         <ScrollSection id="section1">
-         <somecomponent />
-         </ScrollSection>
-         ....
-    </div>
+     <ScrollSection id="section1">
+        <somecomponent />
+     </ScrollSection>
+     ....
 </ScrollContainer>
 ```
 
