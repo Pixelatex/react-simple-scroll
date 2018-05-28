@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { findDOMNode } from 'react-dom'
 
 class ScrollContainer extends React.Component {
     static childContextTypes = {
         scroll: PropTypes.object,
-    }
+    };
 
-    elements = {}
+    elements = {};
 
     handleScroll = () => {
         // console.log('isScrolling', this.elements)
@@ -25,15 +26,20 @@ class ScrollContainer extends React.Component {
         //     }
         //     console.log(n.offsetTop, 'offset')
         // }
-    }
+    };
+
+    getNode = (name) => {
+
+        return findDOMNode(this.elements[name]);
+    };
 
     register = (name, ref) => {
         this.elements[name] = ref
-    }
+    };
 
     unregister = name => {
         delete this.elements[name]
-    }
+    };
 
     getChildContext() {
         return {
@@ -45,7 +51,12 @@ class ScrollContainer extends React.Component {
     }
 
     render() {
-        return <div onScroll={this.handleScroll}>{React.Children.only(this.props.children)}</div>
+        return <div id={this.props.containerId} onScroll={this.handleScroll}>{React.Children.only(this.props.children)}</div>
     }
 }
+
+ScrollContainer.defaultProps = {
+    containerId: ''
+};
+
 export default ScrollContainer

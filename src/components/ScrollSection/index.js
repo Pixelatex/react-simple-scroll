@@ -4,15 +4,15 @@ import PropTypes from 'prop-types'
 class ScrollSection extends React.Component {
     static contextTypes = {
         scroll: PropTypes.object,
-    }
+    };
 
     componentDidMount() {
-        this.context.scroll.register(this.props.sectionId, this._element)
+        this.context.scroll.register(this.props.sectionId, this._element);
         this.props.onMountHandler()
     }
 
     componentWillUnmount() {
-        this.context.scroll.unregister(this.props.sectionId)
+        this.context.scroll.unregister(this.props.sectionId);
         this.props.onUnmountHandler()
 
     }
@@ -40,7 +40,7 @@ ScrollSection.defaultProps = {
     onUnmountHandler: () => null,
     onChangeHandler: () => null,
     onChildHandler: () => null
-}
+};
 
 ScrollSection.propTypes = {
     onMountHandler: PropTypes.func,
@@ -48,6 +48,6 @@ ScrollSection.propTypes = {
     onChangeHandler: PropTypes.func,
     onChildHandler: PropTypes.func,
     sectionId: PropTypes.string.isRequired
-}
+};
 
 export default ScrollSection
