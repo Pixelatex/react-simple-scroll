@@ -1,6 +1,10 @@
-
 # react-simple-scroll
 A simple scrolling container for react.
+
+
+[![npm package v](https://img.shields.io/npm/v/react-simple-scroll-container.svg)](https://www.npmjs.com/package/react-simple-scroll-container)
+[![David Dependancy Status](https://david-dm.org/pixelatex/react-simple-scroll.svg)](https://david-dm.org/pixelatex/react-simple-scroll)
+[![npm package dm](https://img.shields.io/npm/dm/react-simple-scroll-container.svg)](https://www.npmjs.com/package/react-simple-scroll-container)
 
 ## Table of Contents
 
