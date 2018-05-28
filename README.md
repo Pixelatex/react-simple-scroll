@@ -1,4 +1,4 @@
-# react-simple-scroll
+# react-simple-scroll-container
 A simple scrolling container for react.
 
 
@@ -10,8 +10,9 @@ A simple scrolling container for react.
 
 *   API
     *  ScrollSection
+    *  ScrollTo
     *  ScrollContainer
-*   Example
+*   Examples
 
 
 ## Api
@@ -40,7 +41,7 @@ A simple scrolling container for react.
 | SectionId   | String   | The section id you will use to scroll to.
 
 
-## Example
+## Examples
 
 #### Basic usage of the container and sections
 
