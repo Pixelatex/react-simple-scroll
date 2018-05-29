@@ -25,13 +25,16 @@ class ScrollSection extends React.Component {
         return React.Children.map(this.props.children, child => {
             return React.cloneElement(child, {
                 onChildHandler: this.props.onChildHandler,
-                ref: ref => (this._element = ref)
             })
         })
     }
 
     render() {
-        return <div id={this.props.sectionId}>{this.renderChildren()}</div>
+        return (
+            <div id={this.props.sectionId}  ref={ref => (this._element = ref)}>
+                {this.renderChildren()}
+            </div>
+        )
     }
 }
 

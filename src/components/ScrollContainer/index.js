@@ -13,28 +13,35 @@ class ScrollContainer extends React.Component {
 
     elements = {};
 
-    handleScroll = (e) => {
-        // This should be updated to handle the detection when a scroll element is on top
-
+    getActiveElement = () => {
+        let result = this.state.activeElement;
         const containerScrollTop = this.container.scrollTop;
-        const containerOffset = this.container.offsetHeight;
+        Object.keys(this.elements).forEach(key => {
+            const element = findDOMNode(this.elements[key]);
+            // if offset height === 0, the element is empty
+            if (element.offsetHeight !== 0) {
+                const isActive =
+                    containerScrollTop >= element.offsetTop - this.props.topScrollOffset &&
+                    containerScrollTop <= element.offsetHeight + element.offsetTop;
 
-        Object.keys(this.elements).map(key => {
-            const element = this.elements[key];
-            const remainingDistanceToTop = element.offsetTop - ((containerOffset + containerScrollTop) + element.offsetHeight /2);
-
-            if( remainingDistanceToTop < 0) {
-                // Do the call back with the active id
-                if(this.state.activeElement !== key) {
-                    this.setState({
-                        activeElement: key
-                    });
-                    this.props.topScrollCallback(key);
-
-
+                if (isActive) {
+                    result = key
                 }
             }
-        })
+        });
+        return result
+    };
+
+    handleScroll = e => {
+        const activeElement = this.getActiveElement();
+        if (this.state.activeElement !== activeElement) {
+            console.log('active!');
+            // Do the call back with the active id
+            this.setState({
+                activeElement: activeElement,
+            });
+            this.props.topScrollCallback(activeElement)
+        }
     };
 
     getNode = (name) => {
@@ -61,7 +68,7 @@ class ScrollContainer extends React.Component {
     render() {
         return (
             <div
-                style={{overflowY: 'scroll', ...this.props.extraStyle}}
+                style={{overflowY: 'scroll', position: 'relative', ...this.props.extraStyle}}
                 id={this.props.containerId}
                 className={this.props.extraClassName}
                 onScroll={this.props.topScroll ? this.handleScroll : () => null}
@@ -76,6 +83,7 @@ ScrollContainer.defaultProps = {
     containerId: '',
     topScroll: false,
     topScrollCallback: () => null,
+    topScrollOffset: 10,
     extraStyle: {},
     extraClassName: ''
 };
@@ -84,6 +92,7 @@ ScrollContainer.propTypes = {
     containerId: PropTypes.string,
     topScroll: PropTypes.bool,
     topScrollCallback: PropTypes.func,
+    topScrollOffset: PropTypes.number,
     extraStyle: PropTypes.object,
     extraClassName: PropTypes.string
 };

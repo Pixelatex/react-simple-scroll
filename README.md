@@ -26,6 +26,7 @@ A simple scrolling container for react.
 | ExtraClass   | String   | Extra classname(s) to be added to the container div. |
 | TopScroll   | Bool   | Should container detect the currently active top element. |
 | TopScrollCallback   | Func   | Callback which provides the new active element. |
+| TopScrollOffset   | Number   | This is a small offset for the active scrolling detection, default is 10 pixels. |
 
 #### ScrollTo
 

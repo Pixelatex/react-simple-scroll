@@ -3,16 +3,18 @@ import scrollIntoView from 'scroll-into-view'
 import ScrollSection from './components/ScrollSection/index'
 import ScrollContainer from './components/ScrollContainer/index'
 
-window.findReactComponent = function(el) {
-    for (const key in el) {
-        if (key.startsWith('__reactInternalInstance$')) {
-            const fiberNode = el[key];
+if (typeof window !== 'undefined') {
+    window.findReactComponent = function (el) {
+        for (const key in el) {
+            if (key.startsWith('__reactInternalInstance$')) {
+                const fiberNode = el[key];
 
-            return fiberNode && fiberNode.return && fiberNode.return.stateNode;
+                return fiberNode && fiberNode.return && fiberNode.return.stateNode;
+            }
         }
-    }
-    return null;
-};
+        return null;
+    };
+}
 
 const ScrollTo = (sectionId, containerId = null, offset = 0, speed = 500) => {
     let node = null;
